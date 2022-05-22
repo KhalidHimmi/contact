@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Gestion de contacts</string>
+    <string name="gestion_contact">Gestion contact</string>
+    <string name="nom">Nom</string>
+    <string name="tele">Num Tele</string>
+    <string name="pic">Photo</string>
+    <string name="btn">Ajouter</string>
+    <string name="btncamera">Camera</string>
+</resources>

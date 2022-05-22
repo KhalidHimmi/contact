@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fsize">20sp</dimen>
+    <dimen name="tvweight">1</dimen>
+    <dimen name="etweight">2</dimen>
+
+</resources>
