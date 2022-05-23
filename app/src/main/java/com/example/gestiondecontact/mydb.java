@@ -1,11 +1,15 @@
 package com.example.gestiondecontact;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
 
 public class mydb extends SQLiteOpenHelper {
     public mydb(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
@@ -31,5 +35,23 @@ public class mydb extends SQLiteOpenHelper {
         db.insert("contact",null,cv);
         db.close();
 
+    }
+    @SuppressLint("Range")
+    public ArrayList<String> affiche()
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cur = db.rawQuery("SELECT * FROM contat",null);
+        ArrayList<String> a = new ArrayList<String>();
+        cur.moveToFirst();
+        while (!cur.isAfterLast())
+        {
+            String nom,tele;
+            nom = cur.getString(cur.getColumnIndex("nom"));
+            tele = cur.getString(cur.getColumnIndex("numTele"));
+            a.add(nom + "|" + tele);
+            cur.moveToNext();
+        }
+        db.close();
+        return a;
     }
 }
